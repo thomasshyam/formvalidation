@@ -129,26 +129,26 @@ function HomeScreen({...otherProps}) {
                             keyboardType='number-pad'
                         />
                         <ErrorScreen errorValue={touched.carbon && errors.carbon} />
-                        <TouchableOpacity onPress={() => showMode('date')}>
-                            <View style={styles.inputContainer} >
+                        <View style={styles.inputContainer} >
                                 {text === 'Empty' ? (
                                     <Text style={styles.input}>Valid Till Date</Text>
                                 ) : (   
                                     <Text style={styles.input}>{text}</Text>
                                 )}
-                                <Entypo name='calendar' size={20} color='grey' style={styles.calender} />
-                                {show && (
-                                    <DateTimePicker
-                                        testID="dateTimePicker"
-                                        value={date}
-                                        mode={mode}
-                                        is24Hour={true}
-                                        display="default"
-                                        onChange={onChange}
-                                    />
-                                )}
-                            </View>
-                        </TouchableOpacity>
+                                <TouchableOpacity onPress={() => showMode('date')} style={styles.calender}>
+                                    <Entypo name='calendar' size={20} color='grey'  />
+                                    {show && (
+                                        <DateTimePicker
+                                            testID="dateTimePicker"
+                                            value={date}
+                                            mode={mode}
+                                            is24Hour={true}
+                                            display="default"
+                                            onChange={onChange}
+                                        />
+                                    )}
+                                </TouchableOpacity>
+                           </View>
                         <AppButton
                             title='Save Changes'    
                             onPress={handleSubmit}
